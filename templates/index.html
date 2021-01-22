@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+      <title>HARISH | PROJECT NAME</title>
+   </head>
+   <body>
+      <div class="container">
+         <div class="py-5 text-center">
+            <img class="d-block mx-auto mb-4" src="/static/img/rainfall.png" alt="">
+            <h2>Rain status</h2>
+            <p class="lead">Below is an example form built to predict using the Machine Learning Model</p>
+         </div>
+         <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-8">
+               <h4 class="mb-3">Weather Details</h4>
+               {% if show_hidden == True %}
+               <div class="alert alert-success" role="alert">{{ prediction_text }}</div>
+               {% endif %}
+               <form action="{{ url_for('predict')}}"method="post" class="needs-validation" >
+                  <div class="row">
+                     <div class="col-md-6 mb-3">
+                        <label for="location">location</label>
+                        <input type="text" class="form-control" id="location" name="location" placeholder="" value="" required>
+                     </div>
+                     <div class="col-md-6 mb-3">
+                        <label for="mintemp">mintemp</label>
+                        <input type="text" class="form-control" id="mintemp" name="mintemp"  placeholder="" value="" required>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6 mb-3">
+                        <label for="maxtemp">maxtemp</label>
+                        <input type="text" class="form-control" id="maxtemp" name="maxtemp" placeholder="" value="" required>
+                     </div>
+                     <div class="col-md-6 mb-3">
+                        <label for="rainfall">rainfall</label>
+                        <input type="text" class="form-control" id="rainfall" name="rainfall" placeholder="" value="" required>
+                     </div>
+                  </div>
+<! adding text box -->
+                  <div class="row">
+                     <div class="col-md-6 mb-3">
+                        <label for="evaporation">evaporation</label>
+                        <input type="text" class="form-control" id="evaporation" name="evaporation" placeholder="" value="" required>
+                     </div>
+                     <div class="col-md-6 mb-3">
+                        <label for="sunshine">sunshine</label>
+                        <input type="text" class="form-control" id="sunshine" name="sunshine"  placeholder="" value="" required>
+                     </div>
+                  </div>
+
+                  <div class="row">
+                     <div class="col-md-6 mb-3">
+                        <label for="windgustdir">windgustdir</label>
+                        <input type="text" class="form-control" id="windgustdir" name="windgustdir" placeholder="" value="" required>
+                     </div>
+                     <div class="col-md-6 mb-3">
+                        <label for="windgustspeed">windgustspeed</label>
+                        <input type="text" class="form-control" id="windgustspeed" name="windgustspeed"  placeholder="" value="" required>
+                     </div>
+                  </div>
+
+                  <div class="row">
+                     <div class="col-md-6 mb-3">
+                        <label for="winddir9am">winddir9am</label>
+                        <input type="text" class="form-control" id="winddir9am" name="winddir9am" placeholder="" value="" required>
+                     </div>
+                     <div class="col-md-6 mb-3">
+                        <label for="winddir3pm">winddir3pm</label>
+                        <input type="text" class="form-control" id="winddir3pm" name="winddir3pm"  placeholder="" value="" required>
+                     </div>
+                  </div>
+
+                   <div class="row">
+                     <div class="col-md-6 mb-3">
+                        <label for="windspeed9am">windspeed9am</label>
+                        <input type="text" class="form-control" id="windspeed9am" name="windspeed9am" placeholder="" value="" required>
+                     </div>
+                     <div class="col-md-6 mb-3">
+                        <label for="windspeed3pm">windspeed3pm</label>
+                        <input type="text" class="form-control" id="windspeed3pm" name="windspeed3pm"  placeholder="" value="" required>
+                     </div>
+                  </div>
+
+                   <div class="row">
+                     <div class="col-md-6 mb-3">
+                        <label for="humidity9am">humidity9am</label>
+                        <input type="text" class="form-control" id="humidity9am" name="humidity9am" placeholder="" value="" required>
+                     </div>
+                     <div class="col-md-6 mb-3">
+                        <label for="humidity3pm">humidity3pm</label>
+                        <input type="text" class="form-control" id="humidity3pm" name="humidity3pm"  placeholder="" value="" required>
+                     </div>
+                  </div>
+
+                   <div class="row">
+                     <div class="col-md-6 mb-3">
+                        <label for="pressure9am">pressure9am</label>
+                        <input type="text" class="form-control" id="pressure9am" name="pressure9am" placeholder="" value="" required>
+                     </div>
+                     <div class="col-md-6 mb-3">
+                        <label for="pressure3pm">pressure3pm</label>
+                        <input type="text" class="form-control" id="pressure3pm" name="pressure3pm"  placeholder="" value="" required>
+                     </div>
+                  </div>
+
+                   <div class="row">
+                     <div class="col-md-6 mb-3">
+                        <label for="cloud9am">cloud9am</label>
+                        <input type="text" class="form-control" id="cloud9am" name="cloud9am" placeholder="" value="" required>
+                     </div>
+                     <div class="col-md-6 mb-3">
+                        <label for="cloud3pm">cloud3pm</label>
+                        <input type="text" class="form-control" id="cloud3pm" name="cloud3pm"  placeholder="" value="" required>
+                     </div>
+                  </div>
+
+                   <div class="row">
+                     <div class="col-md-6 mb-3">
+                        <label for="temp9am">temp9am</label>
+                        <input type="text" class="form-control" id="temp9am" name="temp9am" placeholder="" value="" required>
+                     </div>
+                     <div class="col-md-6 mb-3">
+                        <label for="temp3pm">temp3pm</label>
+                        <input type="text" class="form-control" id="temp3pm" name="temp3pm"  placeholder="" value="" required>
+                     </div>
+                  </div>
+
+                   <div class="row">
+                     <div class="col-md-6 mb-3">
+                        <label for="raintoday">raintoday</label>
+                        <input type="text" class="form-control" id="raintoday" name="raintoday" placeholder="" value="" required>
+                     </div>
+                   </div>
+
+                  <button class="btn btn-primary btn-lg btn-block" type="submit">Predict</button>
+            </div>
+            <div class="col-md-2">
+            </div>
+            </form>
+         </div>
+         <footer class="my-5 pt-5 text-muted text-center text-small">
+            <p class="mb-1">&copy; 2020-2021 HARISH</p>
+            <ul class="list-inline">
+               <li class="list-inline-item"><a href="#">Privacy</a></li>
+               <li class="list-inline-item"><a href="#">Terms</a></li>
+               <li class="list-inline-item"><a href="#">Support</a></li>
+            </ul>
+         </footer>
+      </div>
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+   </body>
+</html>
